@@ -27,3 +27,8 @@ p {
 	margin: 100px auto;
 	text-align: center;
 }
+
+span { 
+    display: inline-block; 
+    position: absolute;
+}
