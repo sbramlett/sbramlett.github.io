@@ -31,4 +31,5 @@ p {
 span { 
     display: inline-block; 
     position: absolute;
+    height: 75%;
 }
