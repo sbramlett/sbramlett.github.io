@@ -1,9 +1,9 @@
 body { 
-background: no-repeat center center fixed; 
--webkit-background-size: cover;
--moz-background-size: cover;
--o-background-size: cover;
-background-size: cover;
+	background: no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
 
 h1 {
@@ -31,5 +31,23 @@ p {
 span { 
     display: inline-block; 
     position: absolute;
-    height: 75%;
+}
+
+/* Set form display */
+#contact {
+	background-image: url("images/hw_floor.jpg");
+}
+
+.form {
+	background-image: url("images/bball_court.png");
+	padding: 20px;
+	width: 400px;
+	margin: 100px auto;
+	text-align: center;
+	background-size: cover;
+}
+
+label {
+	color: white;
+	font-weight: bold;
 }
