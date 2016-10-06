@@ -1,9 +1,12 @@
 // Set timer information
-var clock;
+var clock30;
+var clock60;
+var clock90;
+var clock120;
 
 $(document).ready(function() {
 
-  clock = $('.clock').FlipClock(90, {
+  clock30 = $('.clock30').FlipClock(30, {
     clockFace: 'MinuteCounter',
     countdown: true,
     autoStart: false,
@@ -12,11 +15,51 @@ $(document).ready(function() {
       }
     }
   });
+  
+  clock60 = $('.clock60').FlipClock(60, {
+    clockFace: 'MinuteCounter',
+    countdown: true,
+    autoStart: false,
+    callbacks: {
+      start: function() {
+      }
+    }
+  });
+  
+  clock90 = $('.clock90').FlipClock(90, {
+    clockFace: 'MinuteCounter',
+    countdown: true,
+    autoStart: false,
+    callbacks: {
+      start: function() {
+      }
+    }
+  });
+
+
+  clock120 = $('.clock120').FlipClock(120, {
+    clockFace: 'MinuteCounter',
+    countdown: true,
+    autoStart: false,
+    callbacks: {
+      start: function() {
+      }
+    }
+  });
+  
   $('.start').click(function(s) {
-    clock.start();
+    clock30.start();
+    clock60.start();
+    clock90.start();
+    clock120.start();
   });
-    $('.reset').click(function(r) {
-    clock.reset();
+  
+  $('.reset').click(function(r) {
+    clock30.reset();
+    clock60.reset();
+    clock90.reset();
+    clock120.reset();
   });
+  
 });
 
