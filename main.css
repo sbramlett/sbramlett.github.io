@@ -32,19 +32,3 @@ span {
     display: inline-block; 
     position: absolute;
 }
-
-/* Set form display */
-#contact {
-	background-image: url("images/hw_floor.jpg");
-}
-
-.form {
-	padding: 20px;
-	margin: 100px auto;
-	text-align: center;
-}
-
-label {
-	color: white;
-	font-weight: bold;
-}

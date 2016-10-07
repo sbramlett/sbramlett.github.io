@@ -47,11 +47,18 @@ $(document).ready(function() {
     }
   });
   
-  $('.start').click(function(s) {
+  $('.start').click(function(st) {
     clock30.start();
     clock60.start();
     clock90.start();
     clock120.start();
+  });
+  
+  $('.stop').click(function(sp) {
+    clock30.stop();
+    clock60.stop();
+    clock90.stop();
+    clock120.stop();
   });
   
   $('.reset').click(function(r) {
@@ -62,4 +69,3 @@ $(document).ready(function() {
   });
   
 });
-
