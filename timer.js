@@ -1,40 +1,32 @@
-function countdown( elementName, minutes, seconds )
-{
-    var element, endTime, hours, mins, msLeft, time;
+var startButton = document.getElementById("start");
+var resetButton = document.getElementById("reset");
+var minsLeft = document.getElementById("mins-left");
+var secsLeft = document.getElementById("secs-left");
+var begin = setInterval(countdown, 1000); // Call countdown function every 1000 milliseconds
 
-		function startTimer() {
-    // Start timer on click button?
-    }
+var startTimer = function(){
+	console.log("Start");
+	startButton.disabled=true;
+};
 
-		function resetTimer() {
-    // Reset timers to starting time?
-    }
+var resetTimer = function(){
+	console.log("Reset");
+	window.clearInterval(begin); // clear the timer and stop the clock
+	secsLeft.innerText=00;
+	minsLeft.innerText=document.getElementById("mins").innerText;
+	startButton.disabled=false;
+};
 
-    function twoDigits( n )
-    {
-        return (n <= 9 ? "0" + n : n);
-    }
-
-    function updateTimer()
-    {
-        msLeft = endTime - (+new Date);
-        if ( msLeft < 1000 ) {
-           // repeat countdown?
-        } else {
-            time = new Date( msLeft );
-            hours = time.getUTCHours();
-            mins = time.getUTCMinutes();
-            element.innerHTML = (hours ? hours + ':' + twoDigits( mins ) : mins) + ':' + twoDigits( time.getUTCSeconds() );
-            setTimeout( updateTimer, time.getUTCMilliseconds() + 500 );
-        }
-    }
-
-    element = document.getElementById( elementName );
-    endTime = (+new Date) + 1000 * (60*minutes + seconds) + 500;
-    updateTimer();
-}
-
-countdown( "countdown", 0, 10 );
-countdown( "countdown2", 0, 20 );
-countdown( "countdown3", 0, 30 );
-countdown( "countdown4", 0, 40 );
+// This is what makes the clock tick downwards
+var countdown = function(){
+	console.log("countdown");
+	if(secsLeft.innerText<=0){
+		secsLeft.innerText=60;
+		minsLeft.innerText--;		
+	}
+	secsLeft.innerText--;
+	
+	if(secsLeft.innerText<=0 && minsLeft.innerText<=0){
+		window.clearInterval(begin);
+	}
+};

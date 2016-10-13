@@ -8,21 +8,35 @@
 	</head>
 
     <body>
+        <h1>Halo CE Timer</h1>
+        
+        <button class="button start" id="start" onclick="startTimer()">Start</button>
+    	<button class="button reset" id="reset" onclick="resetTimer()">Reset</button>
+        <br>
+        <br>
         <select class="div-toggle" data-target=".maps">
           <option value="battlecreek" data-show=".battlecreek">Battle Creek</option>
           <option value="bloodgulch" data-show=".bloodgulch">Blood Gulch</option>
           <option value="boardingaction" data-show=".boardingaction">Boarding Action</option>
           <option value="chillout" data-show=".chillout">Chill Out</option>
         </select>
-
         <div class="maps">
             <div class="battlecreek">
                     Battle Creek Timers table here
-                    <span id="countdown"></span>
-                    <span id="countdown2"></span>
-                    <span id="countdown3"></span>
-                    <span id="countdown4"></span>
+                    <br>
+                    <br>
+                    <div id="timer">
+                    Sniper
+		            <div class="clock"><span id="mins-left">1</span>m <span id="secs-left">30</span>s</div>
+		            Rockets
+		            <div class="clock"><span id="mins-left">1</span>m <span id="secs-left">30</span>s</div>
+		            Active Camo
+		            <div class="clock"><span id="mins-left">1</span>m <span id="secs-left">30</span>s</div>
+		            Overshield
+		            <div class="clock"><span id="mins-left">1</span>m <span id="secs-left">30</span>s</div>
+        	        </div>
             </div>
+
             <div class="bloodgulch">Blood Gulch Timers table here</div>
             <div class="boardingaction">Boarding Action Timers table here</div>
             <div class="chillout">Chill Out Timers table here</div>
