@@ -1,71 +1,40 @@
-// Set timer information
-var clock30;
-var clock60;
-var clock90;
-var clock120;
+function countdown( elementName, minutes, seconds )
+{
+    var element, endTime, hours, mins, msLeft, time;
 
-$(document).ready(function() {
+		function startTimer() {
+    // Start timer on click button?
+    }
 
-  clock30 = $('.clock30').FlipClock(30, {
-    clockFace: 'MinuteCounter',
-    countdown: true,
-    autoStart: false,
-    callbacks: {
-      start: function() {
-      }
+		function resetTimer() {
+    // Reset timers to starting time?
     }
-  });
-  
-  clock60 = $('.clock60').FlipClock(60, {
-    clockFace: 'MinuteCounter',
-    countdown: true,
-    autoStart: false,
-    callbacks: {
-      start: function() {
-      }
-    }
-  });
-  
-  clock90 = $('.clock90').FlipClock(90, {
-    clockFace: 'MinuteCounter',
-    countdown: true,
-    autoStart: false,
-    callbacks: {
-      start: function() {
-      }
-    }
-  });
 
-
-  clock120 = $('.clock120').FlipClock(120, {
-    clockFace: 'MinuteCounter',
-    countdown: true,
-    autoStart: false,
-    callbacks: {
-      start: function() {
-      }
+    function twoDigits( n )
+    {
+        return (n <= 9 ? "0" + n : n);
     }
-  });
-  
-  $('.start').click(function(st) {
-    clock30.start();
-    clock60.start();
-    clock90.start();
-    clock120.start();
-  });
-  
-  $('.stop').click(function(sp) {
-    clock30.stop();
-    clock60.stop();
-    clock90.stop();
-    clock120.stop();
-  });
-  
-  $('.reset').click(function(r) {
-    clock30.reset();
-    clock60.reset();
-    clock90.reset();
-    clock120.reset();
-  });
-  
-});
+
+    function updateTimer()
+    {
+        msLeft = endTime - (+new Date);
+        if ( msLeft < 1000 ) {
+           // repeat countdown?
+        } else {
+            time = new Date( msLeft );
+            hours = time.getUTCHours();
+            mins = time.getUTCMinutes();
+            element.innerHTML = (hours ? hours + ':' + twoDigits( mins ) : mins) + ':' + twoDigits( time.getUTCSeconds() );
+            setTimeout( updateTimer, time.getUTCMilliseconds() + 500 );
+        }
+    }
+
+    element = document.getElementById( elementName );
+    endTime = (+new Date) + 1000 * (60*minutes + seconds) + 500;
+    updateTimer();
+}
+
+countdown( "countdown", 0, 10 );
+countdown( "countdown2", 0, 20 );
+countdown( "countdown3", 0, 30 );
+countdown( "countdown4", 0, 40 );
