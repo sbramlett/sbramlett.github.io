@@ -1,22 +1,22 @@
 var startButton = $("#start"),
     resetButton = $("#reset"),
+    begin = setInterval(countdown, 1000), // Call countdown function every 1000 milliseconds
     minsLeft = $("#mins-left"),
-    secsLeft = $("#secs-left"),
-    //begin = setInterval(countdown, 1000); // Call countdown function every 1000 milliseconds
+    secsLeft = $("#secs-left");
 
 // This is what makes the clock tick downwards
-function countdown(){
+function countdown() {
 	console.log("countdown");
 	if(secsLeft.innerText<=0){
 		secsLeft.innerText=60;
 		minsLeft.innerText--;		
-	}
+	};
 	secsLeft.innerText--;
 	
 	if(secsLeft.innerText<=0 && minsLeft.innerText<=0){
 		window.clearInterval(begin);
-	}
-};
+	};
+}
 
 function startTimer(){
 	console.log("Start");
