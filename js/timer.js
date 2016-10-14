@@ -1,32 +1,25 @@
-var startButton = $("#start"),
-    resetButton = $("#reset"),
-    begin = setInterval(countdown, 1000), // Call countdown function every 1000 milliseconds
-    minsLeft = $("#mins-left"),
-    secsLeft = $("#secs-left");
+window.onload = function () {
+    var display = document.querySelector('#clock90'),
+        timer = new CountDownTimer(90),
+        timeObj = CountDownTimer.parse(90);
 
-// This is what makes the clock tick downwards
-function countdown() {
-	console.log("countdown");
-	if(secsLeft.innerText<=0){
-		secsLeft.innerText=60;
-		minsLeft.innerText--;		
-	};
-	secsLeft.innerText--;
-	
-	if(secsLeft.innerText<=0 && minsLeft.innerText<=0){
-		window.clearInterval(begin);
-	};
-}
-
-function startTimer(){
-	console.log("Start");
-	startButton.disabled=true;
-};
-
-function resetTimer(){
-	console.log("Reset");
-	window.clearInterval(begin); // clear the timer and stop the clock
-	secsLeft.innerText=00;
-	minsLeft.innerText=document.getElementById("mins").innerText;
-	startButton.disabled=false;
+    format(timeObj.minutes, timeObj.seconds);
+    
+    timer.onTick(display);
+    
+    document.querySelector('#start').addEventListener('click', function () {
+        timer.start();
+    });
+    
+        function restart() {
+        if (this.expired()) {
+            setTimeout(function () { timer.start(); }, 1000);
+        }
+    }
+    
+    function format(minutes, seconds) {
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+        display.textContent = minutes + ':' + seconds;
+    }
 };
