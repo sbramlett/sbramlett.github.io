@@ -91,16 +91,18 @@
 
     <script>
         $(document).ready(function(){
-            $("#start").click(function(){
-                console.log('start');
-                //startTimer()
-            });
-            $("#reset").click(function(){
-                console.log('reset');
-                //resetTimer
-            })
-        })
+            var timer;
 
+            $("#start").click(function(){
+                timer = setInterval(function(){
+                    console.log('time');
+                }, 1000);
+            });
+
+            $("#reset").click(function(){
+                clearInterval(timer);
+            });
+        });
     </script>
     
     </body>
