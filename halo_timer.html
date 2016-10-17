@@ -11,8 +11,8 @@
     <body>
         <h1>Halo CE Timer</h1>
         
-        <button class="button start" id="start" onclick="startTimer()">Start</button>
-    	<button class="button reset" id="reset" onclick="resetTimer()">Reset</button>
+        <button class="button start" id="start">Start</button>
+    	<button class="button reset" id="reset">Reset</button>
         <br>
         <br>
         <select class="div-toggle" data-target=".maps">
@@ -88,7 +88,20 @@
         	 </div>
         	 
         </div>
-    
+
+    <script>
+        $(document).ready(function(){
+            $("#start").click(function(){
+                console.log('start');
+                //startTimer()
+            });
+            $("#reset").click(function(){
+                console.log('reset');
+                //resetTimer
+            })
+        })
+
+    </script>
     
     </body>
 
