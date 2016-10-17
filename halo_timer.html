@@ -104,6 +104,7 @@
             $("#reset").click(function(){ //jQuery - do this when the element with the id "reset" is clicked.
                 clearInterval(timer); //stop the interval assigned to the variable time
                 $(".timer span").text(0); //jQuery replace the text in the element .timer span with the 0
+                time = 1; //reset the time variable back to 1
             });
         });
     </script>
