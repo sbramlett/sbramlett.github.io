@@ -91,12 +91,14 @@
 
     <script>
         $(document).ready(function(){
-            var timer;
+            var timer,
+                time = 1;
 
             $("#start").click(function(){
                 timer = setInterval(function(){
-                    console.log('time');
-                }, 1000);
+                    $(".timer span").text(time);
+                    time++
+                }, 500);
             });
 
             $("#reset").click(function(){
