@@ -2,8 +2,6 @@
 <html>
 	<head>
 	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	    <script type="text/javascript" src="js/countdown.js"></script>
-		<script type="text/javascript" src="js/timer.js"></script>
 		<script type="text/javascript" src="js/toggle.js"></script>
 		<link rel="stylesheet" type="text/css" href="css/timer.css">
 	</head>
@@ -11,8 +9,8 @@
     <body>
         <h1>Halo CE Timer</h1>
         
-        <button class="button start" id="start" onclick="startTimer()">Start</button>
-    	<button class="button reset" id="reset" onclick="resetTimer()">Reset</button>
+        <button class="button start" id="start">Start</button>
+    	<button class="button reset" id="reset">Reset</button>
         <br>
         <br>
         <select class="div-toggle" data-target=".maps">
@@ -21,7 +19,9 @@
           <option value="boardingaction" data-show=".boardingaction">Boarding Action</option>
           <option value="chillout" data-show=".chillout">Chill Out</option>
         </select>
-        
+
+        <div class="timer">Time: <span>0</span></div>
+
         <div class="maps">
             <div class="battlecreek">
                     Battle Creek Timers table here
@@ -88,7 +88,26 @@
         	 </div>
         	 
         </div>
-    
+
+    <script>
+        $(document).ready(function(){ //jQuery document ready https://learn.jquery.com/using-jquery-core/document-ready/
+            var timer,    //variable to be used for set/clear interval
+                time = 1; //initial time value
+
+            $("#start").click(function(){ //jQuery - do this when the element with the id "start" is clicked.
+                timer = setInterval(function(){
+                    $(".timer span").text(time); //jQuery replace the text in the element .timer span with the current value of time variable
+                    time++ //increment time variable
+                }, 500); //run this function every 500 milliseconds
+            });
+
+            $("#reset").click(function(){ //jQuery - do this when the element with the id "reset" is clicked.
+                clearInterval(timer); //stop the interval assigned to the variable time
+                $(".timer span").text(0); //jQuery replace the text in the element .timer span with the 0
+                time = 1; //reset the time variable back to 1
+            });
+        });
+    </script>
     
     </body>
 
