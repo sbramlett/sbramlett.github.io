@@ -90,19 +90,20 @@
         </div>
 
     <script>
-        $(document).ready(function(){
-            var timer,
-                time = 1;
+        $(document).ready(function(){ //jQuery document ready https://learn.jquery.com/using-jquery-core/document-ready/
+            var timer,    //variable to be used for set/clear interval
+                time = 1; //initial time value
 
-            $("#start").click(function(){
+            $("#start").click(function(){ //jQuery - do this when the element with the id "start" is clicked.
                 timer = setInterval(function(){
-                    $(".timer span").text(time);
-                    time++
-                }, 500);
+                    $(".timer span").text(time); //jQuery replace the text in the element .timer span with the current value of time variable
+                    time++ //increment time variable
+                }, 500); //run this function every 500 milliseconds
             });
 
-            $("#reset").click(function(){
-                clearInterval(timer);
+            $("#reset").click(function(){ //jQuery - do this when the element with the id "reset" is clicked.
+                clearInterval(timer); //stop the interval assigned to the variable time
+                $(".timer span").text(0); //jQuery replace the text in the element .timer span with the 0
             });
         });
     </script>
