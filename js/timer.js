@@ -1,4 +1,8 @@
 // GLOBAL OBJECT THINGIES
+var clock30 = "clock30",
+    clock60 = "clock60",
+    clock90 = "clock90",
+    clock120 = "clock120";
 
 // setInterval returns a number that you can save here.
 // When you're ready to stop the active timer you pass the saved number to clearInterval and the timer stops.
@@ -8,9 +12,10 @@ var mainTimerHandle = null;
 // these are simple javascript objects.
 // this is an Array of three Objects, each of which has a startAt number and a current number.
 var clocks =  [
-    { startAt: 120, current: 120 },
-    { startAt: 60,  current: 60  },
-    { startAt: 30,  current: 30  },
+    { name: "clock30", startAt: 30,  current: 30  },
+    { name: "clock60", startAt: 60,  current: 60  },
+    { name: "clock90", startAt: 90, current: 90 },
+    { name: "clock120", startAt: 120, current: 120 },
   ];
 
 
@@ -78,3 +83,6 @@ var resetOneClock = function(clock) {
   clock.current = clock.startAt;
   console.log("Reset clock with startAt of [" + clock.startAt + "]");
 };
+
+// jQuery to display countdown inside elements
+$('#clock60').text(clock.current);

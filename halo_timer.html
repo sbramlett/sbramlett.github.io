@@ -10,8 +10,8 @@
     <body>
         <h1>Halo CE Timer</h1>
         
-        <button class="button start" id="start" onclick="">Start</button>
-    	<button class="button reset" id="reset" onclick="">Reset</button>
+        <button class="button start" id="start" onclick="startAllClocks()">Start</button>
+    	<button class="button reset" id="reset" onclick="resetAllClocks()">Reset</button>
         <br>
         <br>
         <select class="div-toggle" data-target=".maps">
@@ -31,8 +31,7 @@
 		            <br>
 		            Rockets
 		            <br>
-		            Active Camo
-		            <span id=""></span>
+		            Active Camo <span id="clock60"></span>
 		            <br>
 		            Overshield
         	        </div>
@@ -48,7 +47,7 @@
 		            Rockets
 		            <br>
 		            Active Camo
-		            <span id=""></span>
+		            <span id="clock60"></span>
 		            <br>
 		            Overshield
         	        </div>
