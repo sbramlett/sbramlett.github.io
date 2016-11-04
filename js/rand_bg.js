@@ -8,6 +8,6 @@ var images=['images/1.jpg',
 var randomNumber = Math.floor(Math.random() * images.length);
 var bgImg = 'url(' + images[randomNumber] + ')';
 
-$('body').css({'background':bgImg, 'background-size':'cover', });
+$('body').css({'background-image':bgImg, 'background-size':'cover', });
 
 });
